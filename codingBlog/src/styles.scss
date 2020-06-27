@@ -1,0 +1,25 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html {
+    padding: env(safe-area-inset);
+}
+body {
+    font-family: 'Lato', sans-serif;
+    color: #505962;
+    overflow-x: hidden; 
+}
+
+/* ================MEDIA QUERIES==============*/
+@media(max-width:767.98px) {
+    .caption {
+        top:34%;
+
+    }
+    .caption h1 {
+        font-size:1.8rem;
+    }
+
+}
+
+
