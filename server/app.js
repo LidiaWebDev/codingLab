@@ -3,6 +3,7 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 var app = express()
 const mongoose = require('mongoose')
+
 var port = process.env.PORT || 3000
 app.use(cors({
 origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
@@ -29,6 +30,23 @@ mongoose
 var Users = require('./routes/Users')
 
 app.use('/users', Users)
+const Post = require('./model/post')
+//API end point for fetching the list of blog posts. Since for db Mongo is used, Mongoose client added to connect the db with the app.
+app.post('/api/post/getAllPost', (req, res) => {
+    mongoose.connect(url, { useMongoClient: true } , function(err){
+      console.log(err - 'error here')
+        if(err) throw err;
+        console.log("connection established successfully")
+        Post.find({},[],{ sort: { _id: -1 } },(err, doc) => {
+            if(err) throw err;
+            return res.status(200).json({
+                status: 'success',
+                data: doc
+            })
+        })
+    });
+})
+
 
 
 app.listen(port, function() {
@@ -61,24 +79,6 @@ app.listen(port, function() {
 //     origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
 //     credentials:true
 // }));
-
-
-
-
-// //establish connection with the db
-// const mongoURI = 'mongodb://localhost:27017/members'
-
-// mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, })
-// const db=mongoose.connection;
-// db.on('error', console.log.bind(console, "connection error")); 
-// db.once('open', function(callback){ 
-//     console.log("MongoDB Connected"); 
-// }) 
-
-
-// const indexRouter = require('./routes/index')
-// app.use('/', indexRouter);
-
 
 
 
@@ -166,19 +166,6 @@ app.listen(port, function() {
 //                 })
 //             }
              
-//         })
-//     });
-// })
-// //API end point for fetching the list of blog posts. Since for db Mongo is used, Mongoose client added to connect the db with the app.
-// app.post('/api/post/getAllPost', (req, res) => {
-//     mongoose.connect(url, { useMongoClient: true } , function(err){
-//         if(err) throw err;
-//         Post.find({},[],{ sort: { _id: -1 } },(err, doc) => {
-//             if(err) throw err;
-//             return res.status(200).json({
-//                 status: 'success',
-//                 data: doc
-//             })
 //         })
 //     });
 // })

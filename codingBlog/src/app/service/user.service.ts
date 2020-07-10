@@ -1,48 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { HttpClientModule,HttpClient, HttpHeaders } from '@angular/common/http';
-// import { User } from '../models/user';
-
-
-
- 
-// @Injectable()
-// export class UserService {
- 
-//     constructor(private http: HttpClient){
- 
-//     }
-
-//     register(body:any){
-//         return this.http.post('http://127.0.0.1:3000/members/register',body,{
-//           observe:'body',
-//           headers:new HttpHeaders().append('Content-Type','application/json')
-//         });
-//       }
-     
-//     validateLogin(user: User){
-//         return this.http.post('/api/user/login',{
-//             username : user.username,
-//             password : user.password
-//         })
-//     }
-
-//     user(){
-//         return this.http.get('http://127.0.0.1:3000/users/user',{
-//           observe:'body',
-//           withCredentials:true,
-//           headers:new HttpHeaders().append('Content-Type','application/json')
-//         })
-//       }
-
-//       logout(){
-//         return this.http.get('http://127.0.0.1:3000/users/logout',{
-//           observe:'body',
-//           withCredentials:true,
-//           headers:new HttpHeaders().append('Content-Type','application/json')
-//         })
-//       }
- 
-// }
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable, of } from 'rxjs'
@@ -147,50 +102,9 @@ export class UserService {
   public validateLogin(user: TokenPayload): Observable<any> {
     return this.request('post', 'login', user)
   }
-
-
-
-
-
-
-    // const base = this.http.post(`http://127.0.0.1:3000/users/login`, user)
-    
-  //   const request = base.pipe(
-  //     map((data: TokenResponse) => {
-  //       if (data.token) {
-  //         this.saveToken(data.token)
-  //       }
-  //       return data
-  //     })
-  // )
-   
     
   
 
-
-
-         
-  // public validateLogin(user: TokenPayload): Observable<any> {
-  //   const base = this.http.post(`http://127.0.0.1:3000/users/login`, user)
-
-  //   const request = base.pipe(
-  //     map((data: TokenResponse) => {
-  //       if (data.token) {
-  //         this.saveToken(data.token)
-  //       }
-  //       return data
-  //     })
-  //   )
-    
-
-  //   return request
-  // }
-    //  public validateLogin(user: TokenPayload){
-    //     return this.http.post('http://127.0.0.1:3000/users/login',{
-    //         email : user.email,
-    //         password : user.password
-    //     })
-    // }
 
   public profile(): Observable<any> {
     return this.http.get(`http://127.0.0.1:3000/users/home`, {

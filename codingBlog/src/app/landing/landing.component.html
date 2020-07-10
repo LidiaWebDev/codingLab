@@ -1,216 +1,386 @@
-
 <div id="home">
-<nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
-  <a class="navbar-brand" href="#">
-    <img src="" alt="Logo" title="Logo">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/logo.png" alt="Logo" title="Logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+      (click)= "navbarOpen = !navbarOpen"
+      
+      
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#home">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#about">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Blog Zone
-        </a>
-        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-          <a (click)="router.navigate(['/login'])" class="nav-link" routerLinkActive="active">Login</a>
-          <a (click)="router.navigate(['/register'])" class="nav-link" routerLinkActive="active">Register</a>
-        
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item dropdown offset">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Blog Zone
+          </a>
+          <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+            <a
+              (click)="router.navigate(['/login'])"
+              class="nav-link"
+              routerLinkActive="active"
+              >Login</a
+            >
+            <a
+              (click)="router.navigate(['/register'])"
+              class="nav-link"
+              routerLinkActive="active"
+              >Register</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Landing Page -->
+  <div class="landing">
+    <div class="home-wrap">
+      <div class="home-inner"[ngStyle]="{ 'background-image': 'url(../../assets/galaxy.jpg)' }"
+      appBackgroundImage
+      (imageLoaded)="loaded()"></div>
+    </div>
+
+    <div class="col-12 caption">
+      <h1 class="text-light text-uppercase pb-3 pb-mb-4">
+        Lidia Davidson Personal WebPage
+      </h1>
+      <a href="#portfolio" class="btn btn-outline-light">See my work</a>
+    </div>
+  </div>
+
+  <div id="about" class="offset"></div>
+
+  <!-- Informational part what tools were used to create this portfolio -->
+  <div class="row justify-content-center text-center py-4">
+    <div class="col-11 col-md-10 col-lg-9">
+      <h2>
+        The portfolio is build with Angular, Node.js, MongoDB and AWS services
+      </h2>
+    </div>
+  </div>
+  <!-- About Page -->
+  <div class="jumbotron text-center pt-5 mb-0" id="jumbotron">
+    <div class="row justify-content-start align-items-center" id="aboutRow">
+      <div class="col-lg-5">
+        <div class="about_img">
+          <img class="aboutMePhoto" src="../../assets/me.png" alt="me" />
         </div>
-      </li>
-      <!-- <li class="nav-item">
-        <a (click)="router.navigate(['/login'])" class="nav-link" routerLinkActive="active">Login</a>
-      </li>
-      <li class="nav-item">
-        <a (click)="router.navigate(['/register'])" class="nav-link" routerLinkActive="active">Register</a>
-      </li> -->
-    </ul>
-  </div>
-</nav>
+      </div>
 
-<div class="landing">
-  <div class="home-wrap">
-    <div class="home-inner"></div>
-  </div>
-</div>
-<div class = "col-12 caption">
-  <h1 class="text-light text-uppercase pb-3 pb-mb-4">Lidia Davidson Personal WebPage</h1>
-  <a href="#about" class="btn btn-outline-light">Get Started</a>
-</div>
-<div id="about" class="offset">
-
-<!-- 
-<div class="container-fluid pt-3">
-  <a *ngIf="!isAuthenticated">Please log in to manage your notes.</a>
-  <router-outlet></router-outlet>
-</div> -->
-<div class="row justify-content-center text-center py-4">
-  <div class="col-11 col-md-10 col-lg-9">
-      <h2>Here is going to be my theme. Think what to write</h2>
-      <p class="lead">Here is my personal thought, some good story why I wanted to become a software developer and how this journey I want to continue</p>
-      <a class= "btn btn-secondary btn-md" href="https://twitter.com/LidiaDa81393011">My twitter diary</a>
-  </div>
-</div>
-
-<div class="jumbotron text-center pt-5 mb-0">
-  <h2 class="heading">About</h2>
-
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-6 col-lg-4 about pb-4 pb-lg-2">
-      <i class="fas fa-book-reader fa-3x"></i>
-      <h4 class="text-uppercase pt-3 pb2">Full screen landing page
-        <p class="lead">I will tell my story here so everyone knows what hard works I had to go through in order to be where I am right now.</p>
-      </h4>
-
-  </div>
-  <div class="col-md-6 col-lg-4 about pb-4 pb-lg-2">
-    <i class="fas fa-arrow-circle-down fa-3x"></i>
-    <h4 class="text-uppercase pt-3 pb2">Smooth scrolling
-      <p class="lead">I will tell my story here so everyone knows what hard works I had to go through in order to be where I am right now.</p>
-    </h4>
-
-</div>
-<div class="col-md-6 col-lg-4 about pb-4 pb-lg-2">
-  <i class="fas fa-book-reader fa-3x"></i>
-  <h4 class="text-uppercase pt-3 pb2">Contact Form
-    <p class="lead">I will tell my story here so everyone knows what hard works I had to go through in order to be where I am right now.</p>
-  </h4>
-
-</div>
-</div>
-<div class="container-fluid text-center py-5 mx-0">
-
-  <h2 class="heading">Portfolio</h2>
-  <!-- Start Portfolio Row -->
-  <div class="row pt-4">
-    <div class="col-md-6 p-0 portfolio-item overflow-hidden">
-      <a href="#"target="_blank">
-        <img class="w-100" src="" alt="">
-      </a>
-    </div>
-    <div class="col-md-6 p-0 portfolio-item overflow-hidden">
-      <a href="#"target="_blank">
-        <img class="w-100" src="" alt="">
-      </a>
-    </div>
-    <div class="col-md-6 p-0 portfolio-item overflow-hidden">
-      <a href="#"target="_blank">
-        <img class="w-100" src="" alt="">
-      </a>
-    </div>
-    <div class="col-md-6 p-0 portfolio-item overflow-hidden">
-      <a href="#"target="_blank">
-        <img class="w-100" src="" alt="">
-      </a>
-    </div>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <p class="lead mt-5 mb-4">
-        This is the contact information where I will share all my necessary contact. I will see how important it is and if any of my 
-        future interested people are going to contact me.
-      </p>
-      <a href="#contact" class="btn btn-secondary">Get in touch</a>
-    </div>
-  </div>
-
-</div>
-
-</div>
-
-
-</div>
-
-<div id="testimonials" class="offset">
-  <div class="jumbotron text-center pb-5 mb-0">
-
-    <h2 class="heading">Testimonials</h2>
-
-    <div class="row">
-      <div class="col-11 col-md-10">
-        <div class="row pt-3">
-
-          <div class="col-md-6 pb-5">
-
-            <div class="card rounded-0 mx-lg-4">
-              <img src="./src/assets/codingLab.png" alt="" class="card-img-top rounded-0">
-              <div class="card-body">
-                <h4>John Lee</h4>
-                <p class="lead border-top pt-3">
-                  "I have known Lidia for some time and sure she is the best person to think of."
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-6 pb-5">
-
-            <div class="card rounded-0 mx-lg-4">
-              <img src="./src/assets/codingLab.png" alt="" class="card-img-top rounded-0">
-              <div class="card-body">
-                <h4>John Lee</h4>
-                <p class="lead border-top pt-3">
-                  "I have known Lidia for some time and sure she is the best person to think of."
-                </p>
-              </div>
-            </div>
-          </div>
-
+      <div class="offset-lg-1 col-lg-5">
+        <div class="main_title text-left">
+          <h1>Web Developer <br /></h1>
+          <br />
+          <p class="aboutMe">
+            Hi! I am Lidia from Corona, Ca. Tech inspires me to go forward to
+            explore, analyze, test and apply what I have learned to new
+            projects. I am a passionate web developer, who won't sit a day
+            without finding new exciting tools that help me to build something
+            amazing. My recent experience connected with developing Angular
+            applications.
+          </p>
+          <a class="light_btn" href="../../assets/Lidia Davidson - Resume.pdf"
+            ><span>Download Resume</span></a
+          >
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- Portfolio page-->
+  <div class="portfolio_section" id="portfolio" class="offset">
+    <div class="container-fluid text-center py-5 mx-0">
+      <h2 class="portfolio">Portfolio</h2>
+      <div class="container">
+        <ul class="portfolio_items grid">
+          <li class="col-sm-4 col-xs-6 xs-padding single_item branding">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/health.jpg"
+                width="405px"
+                height="285px"
+                alt="Portfolio Item"
+              />
+              <div class="hover_effect">
+                <a href="https://better-health.herokuapp.com/">
+                  <span class="comment">BetterHealth</span>
+                </a>
+              </div>
+            </figure>
+          </li>
+          <li class="col-sm-4 col-xs-6 xs-padding single_item photo">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/travel.jpg"
+                width="405px"
+                height="285px"
+                alt="Portfolio Item"
+              />
+              <div class="hover_effect">
+                <a href=" https://avrybrdly93.github.io/Tour/">
+                  <span class="comment"> Tour Project</span>
+                </a>
+              </div>
+            </figure>
+          </li>
+          <li class="col-sm-4 col-xs-6 xs-padding single_item branding">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/cards.jpg"
+                width="405px"
+                height="285px"
+                alt="Portfolio Item"
+              />
+              <div class="hover_effect">
+                <a href="https://jsfiddle.net/LidiaWebDev/0nkuh78t/"
+                  ><span class="comment">Signature Pad </span>
+                </a>
+              </div>
+            </figure>
+          </li>
+          <li class="col-sm-4 col-xs-6 xs-padding single_item branding">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/crystal.jpg"
+                width="405px"
+                height="285px"
+                alt="Portfolio Item"
+              />
+              <div class="hover_effect">
+                <a href="https://lidiawebdev.github.io/unit-4-game/">
+                  <span class="comment">Crystal Collector</span>
+                </a>
+              </div>
+            </figure>
+          </li>
+          <li class="col-sm-4 col-xs-6 xs-padding single_item print">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/trivia.jpg"
+                width="405px"
+                height="285px"
+                alt="Portfolio Item"
+              />
+              <div class="hover_effect">
+                <a href="https://lidiawebdev.github.io/TriviaGame/">
+                  <span class="comment">Trivia Game</span>
+                </a>
+              </div>
+            </figure>
+          </li>
+          <li class="col-sm-4 col-xs-6 xs-padding single_item website">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/gif.jpg"
+                width="405px"
+                height="285px"
+                alt="Portfolio Item"
+              />
+              <div class="hover_effect">
+                <a href="https://lidiawebdev.github.io/GifTastic/">
+                  <span class="comment">GifTastic</span>
+                </a>
+              </div>
+            </figure>
+          </li>
+
+          <li class="col-sm-4 col-xs-6 xs-padding single_item branding">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/burger.jpg"
+                width="405px"
+                height="285px"
+                alt="burger"
+              />
+              <div class="hover_effect">
+                <a href="https://immense-cliffs-12673.herokuapp.com">
+                  <span class="comment">Burger App</span>
+                </a>
+              </div>
+            </figure>
+          </li>
+
+          <li class="col-sm-4 col-xs-6 xs-padding single_item print">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/timer.jpg"
+                width="405px"
+                height="285px"
+                alt="Portfolio Item"
+              />
+              <div class="hover_effect">
+                <a href="https://jsfiddle.net/LidiaWebDev/rqpuhz8k/246/">
+                  <span class="comment">Timer Modular Code</span>
+                </a>
+              </div>
+            </figure>
+          </li>
+          <li class="col-sm-4 col-xs-6 xs-padding single_item branding">
+            <figure class="portfolio_item">
+              <img
+                src="../../assets/npm.jpg"
+                width="405px"
+                height="285px"
+                alt="Portfolio Item"
+              />
+              <div class="hover_effect">
+                <a
+                  href="https://www.npmjs.com/package/order-wizard-schematic-onlyfortest"
+                >
+                  <span class="comment">Angular Schematics NPM</span>
+                </a>
+              </div>
+            </figure>
+          </li>
+        </ul>
+      </div>
     </div>
-    <!-- End Jumbotron -->
-  </div>
-  <!-- End Testimonials Section -->
-<!-- Start Contact Section -->
-<div id="contact" class="offset">
- <div class="container-fluid footer">
-<div class="row pt-4 pb-5 justify-content-center">
-
-  <div class="col-sm-11 col-md-9 col-lg-6 text-light text-center">
-     <img src="./src/assets/codingLab.png" alt=""class="my-5">
-      <p>At out core is a collection of design and development solutions that represent anything your business needs to complete in the modern workplace.</p>
-    <ul class="social pt-3">
-      <li><a href="https://www.facebook.com/rusfinlidia" target="_blank">
-        <i class="fab fa-facebook-square"></i></a></li>
-      <li><a href="https://twitter.com/LidiaDa81393011"target="_blank">
-        <i class="fab fa-twitter-square"></i></a></li>
-      <li><a href="https://www.instagram.com/lidiadavidson/"target="_blank">
-        <i class="fab fa-instagram-square"></i></a></li>
-      <li><a href="https://dev.to/lidiawebdev"target="_blank">
-        <i class="fab fa-dev"></i></a></li>
-      <li><a href="https://www.linkedin.com/in/lidiadavidson/"target="_blank">
-        <i class="fab fa-linkedin"></i></a></li>
-    </ul>
   </div>
 
-  <hr class="socket w-100 mt-5">
-  <p class="mb-0 text-light">
-    &copy; <a href="#" target="_blank">Lidia Davidson</a>
-  </p>
+  <!-- Blockquote part. To DO: Create an API to display all the programming related inspirational quotes.
+     JSON file will include all the picked by me quotes. -->
 
-</div> <!--End of  Row -->
+  <div class="quote">
+    <p>
+      <q class="blockquote"
+        >Experience is the name everyone gives to their mistakes. Oscar
+        Wilde.</q
+      >
+    </p>
+  </div>
 
+  <!-- Technical Skills part  -->
 
- </div>
+  <div id="skills" class="skills">
+    <div class="jumbotron text-center pb-5 mb-0">
+      <h2 class="heading">Technical Skills</h2>
 
-</div>
+      <div class="row no-gutters mb-5 icons d-flex justify-content-around">
+        <div class="col-11 col-md-10">
+          <div class="skillset row pt-3">
+            <div
+              class="m4 colored skill-icon devicon-html5-plain-wordmark"
+            ></div>
+            <div
+              class="m4 colored skill-icon devicon-bootstrap-plain colored"
+            ></div>
+            <div
+              class="m4 colored skill-icon devicon-sass-original colored"
+            ></div>
+            <div
+              class="m4 colored skill-icon devicon-angularjs-plain colored"
+            ></div>
+            <div class="m4 colored skill-icon devicon-typescript-plain"></div>
+            <div class="m4 colored skill-icon devicon-c-line colored"></div>
+          </div>
+          <div class="skillset row pt-3 justify-content-around">
+            <div
+              class="m4 colored skill-icon devicon-mongodb-plain-wordmark colored"
+            ></div>
+            <div
+              class="m4 colored skill-icon devicon-amazonwebservices-original colored"
+            ></div>
+            <div
+              class="m4 colored skill-icon devicon-mysql-plain colored"
+            ></div>
+            <div
+              class="m4 colored skill-icon devicon-nodejs-plain-wordmark colored"
+            ></div>
+            <div
+              class="m4 colored skill-icon devicon-express-original-wordmark colored"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <!-- End Jumbotron -->
+    </div>
+    <!-- End Testimonials Section -->
 
+    <!-- Start Contact Section -->
+    <div id="contact" class="offset">
+      <div class="container-fluid footer">
+        <div class="row pt-4 pb-5 justify-content-center">
+          <div
+            class="col-sm-11 col-md-9 col-lg-6 text-light text-center"
+            id="footerSocial"
+          >
+            <!-- <img src="./src/assets/codingLab.png" alt=""class="my-5"> -->
+            <p>
+              If you are interested, you are welcome to contact me. I am open to
+              new horizons to expand. A self-starter and a team player. Connect
+              via any offered platforms below.
+            </p>
+
+            <ul class="social mt-lg-0 mt-4">
+              <li>
+                <a href="mailto:davidson.lidiafirst@gmail.com">
+                  <i class="fa fa-envelope-square fa-3x"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/lidiadavidson/"
+                  target="_blank"
+                >
+                  <i class="fab fa-linkedin fa-3x"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/LidiaDa81393011" target="_blank">
+                  <i class="fab fa-twitter-square fa-3x"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://dev.to/lidiawebdev" target="_blank">
+                  <i class="fab fa-dev fa-3x"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/rusfinlidia" target="_blank">
+                  <i class="fab fa-facebook-square fa-3x"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <hr class="socket w-100 mt-5" />
+          <p class="mb-0 text-light">
+            &copy; <a href="#" target="_blank">Lidia Davidson 2020</a>
+          </p>
+        </div>
+        <!--End of  Row -->
+      </div>
+    </div>
+  </div>
 </div>

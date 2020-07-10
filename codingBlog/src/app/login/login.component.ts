@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-// import { User } from '../models/user';
 import { UserService, TokenPayload} from '../service/user.service';
-import { tokenName, tokenReference } from '@angular/compiler';
-import { User } from '../models/user';
-import { Token, TokenizeResult } from '@angular/compiler/src/ml_parser/lexer';
-import { JsonPipe } from '@angular/common';
 
-
- 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,10 +17,7 @@ export class LoginComponent {
     password: ''
   }
   
-  
-
- 
-  constructor(private loginService: UserService, private router: Router) {window.scrollTo(0, 0);}
+constructor(private loginService: UserService, private router: Router) {window.scrollTo(0, 0);}
 
  validateLogin() {
 
@@ -45,6 +35,7 @@ export class LoginComponent {
      }
     }, error => {
       console.log('error is ', error);
+      alert('Wrong login credentials, please try again')
     });
     
     } else {
@@ -55,6 +46,10 @@ export class LoginComponent {
 
   moveToRegister() {
     this.router.navigate(['/register'])
+  }
+
+  loaded(){
+    console.log('loaded');
   }
 
  

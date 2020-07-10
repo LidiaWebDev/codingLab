@@ -12,16 +12,7 @@ import { UserService, TokenPayload  } from '../service/user.service'
  
 })
 export class RegisterComponent {
-    
 
-        // registerForm = new FormGroup({
-        // email: new FormControl(null, [Validators.email, Validators.required]),
-        // username: new FormControl(null, Validators.required),
-        // password: new FormControl(null, Validators.required),
-        // confirmPass:new FormControl(null, Validators.required)
-        
-
-    // })
 
     credentials: TokenPayload = {
       _id: '',
@@ -38,16 +29,10 @@ export class RegisterComponent {
   moveToLogin(){
     this.router.navigate(['/login']);
   }
-  // userService:UserService;
-
-  register(){
-    
  
-    // if(!this.credentials.valid || (this.credentials.controls.password.value != this.credentials.controls.confirmPass.value)){
-    //   console.log('Invalid Form');
-    //   alert("Invalid credentials, please check the form and submit again") ;
-    //   return;
-    // }
+register(){
+    
+if(this.credentials.email && this.credentials.username &&this.credentials.password) {
     this.auth.register(this.credentials).subscribe(
       () => {
         this.router.navigate(['/login'])
@@ -55,8 +40,17 @@ export class RegisterComponent {
       },
       err => {
         console.error(err)
+        alert('Credentials do not match or left an empty field, please try again')
       }
-    )
+    
+  )
+    } else {
+      alert('The fields are empty, please fill each required field');
+    }
+  }
+
+  loaded() {
+    console.log('loaded');
   }
 
    

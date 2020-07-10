@@ -19,6 +19,9 @@ import { ShowPostComponent } from './show-post/show-post.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { CommonService } from './service/common.service';
+import { CommonModule } from '@angular/common';
+import { LandingComponent } from './landing/landing.component';
+import { BackgroundImageDirective } from './background-image.directive';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { CommonService } from './service/common.service';
   RegisterComponent,
   AddPostComponent,
   HomeComponent,
-  ShowPostComponent
+  ShowPostComponent,
+  LandingComponent,
+  BackgroundImageDirective
 
  
   ],
@@ -40,8 +45,10 @@ import { CommonService } from './service/common.service';
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonModule,
     ModalModule.forRoot()
   ],
+
   providers: [UserService, AuthGuardService, CommonService],
   bootstrap: [RootComponent]
 })

@@ -1,8 +1,11 @@
-<div class="container">
+<div class="container" [ngStyle]="{ 'background-image': 'url(../../assets/galaxy.jpg)' }"
+appBackgroundImage
+(imageLoaded)="loaded()">
   <div class="d-flex justify-content-center h-100">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header d-flex justify-content-between">
         <h3>Register</h3>
+        <a href="#">Go Back</a>
       </div>
       <div class="card-body">
         <form (submit)="register()">
@@ -18,10 +21,13 @@
            
             <input type="email" class="form-control" name="email" placeholder="Enter Password" [(ngModel)]="credentials.password">
           </div>
-          <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+          <button type="submit" class="btn float-right register_btn">Register</button>
         </form>
       </div>
-    </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links"></div>
+         </div>
+      </div>
   </div>
 </div>
 
