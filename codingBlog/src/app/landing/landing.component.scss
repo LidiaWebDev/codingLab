@@ -128,10 +128,12 @@ a > span {
   text-transform: uppercase;
   font-weight: 700;
   padding-bottom: 1rem;
+  
 }
 
 .portfolioContainer {
   display: grid;
+ 
 }
 
 .portfolio_section {
@@ -145,50 +147,47 @@ a > span {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     line-height: 23px;
-    color: #777;
     font-weight: 400;
     position: relative;
     overflow-x: hidden;
+    
   }
 
   img {
     border: none;
     outline: none;
+    
   }
 
   .portfolio_items {
     list-style: none;
     padding: 0;
     margin: 0;
-
-  }
+ }
 
   a,
 a:hover {
   text-decoration: none;
+
 }
 a:focus {
   outline: 0;
   text-decoration: none;
-}
-
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: #ddd !important;
+  
 }
 
   .portfolio_items li {
     padding: 10px;
     display: inline-block; 
-  
-
-
+   
   }
+  
   .portfolio_section .portfolio_items .portfolio_item {
     position: relative;
     overflow: hidden;
   }
   .portfolio_items .portfolio_item .hover_effect {
+    background-color:transparent;
     padding: 25px;
     width: 100%;
     height: 100%;
@@ -198,13 +197,18 @@ textarea::-webkit-input-placeholder {
     text-align: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.5s ease-in-out;
+    transition: opacity 0.7s ease-in-out;
+    
+ 
   }
   .portfolio_items .portfolio_item .hover_effect a {
     background-color: rgba(255, 255, 255, 0.8);
     display: table;
     height: 95%;
     width: 100%;
+   
+    
+    
   }
   .portfolio_items .portfolio_item .hover_effect a img {
     -webkit-transform: scale(0.2);
@@ -213,16 +217,19 @@ textarea::-webkit-input-placeholder {
     transition: all 250ms cubic-bezier(1, -0.6, 0.57, -0.15) 0s;
     visibility: hidden;
     width: auto;
+    
   }
   .portfolio_items .portfolio_item:hover .hover_effect {
     visibility: visible;
     opacity: 1;
+   
   }
   .portfolio_items .portfolio_item:hover .hover_effect a img {
     opacity: 1;
    -webkit-transform: scale(1);
     transform: scale(1);
     visibility: visible;
+    
   }
 
   .portfolio_items .portfolio_item:hover .hover_effect > a > span.comment {
@@ -231,7 +238,9 @@ textarea::-webkit-input-placeholder {
     display: table-cell;
     vertical-align: middle;
     background-color:#0694F9;
+    
   }
+
 
 
   /* SKILLS SECTION*/
@@ -276,7 +285,7 @@ q:after {
   color: #00b3ff;
   font-size: 1.2em;
 }
-/* =========CONTACT SECTION===================*/
+/* =========CONTACT SECTION && FOOTER===================*/
 
 .footer {
     background-color:#565b61;
@@ -419,12 +428,9 @@ hr.socket {
   
       text-align: center!important;
       white-space: normal;
-      font-size: 1px; 
-     
-
+      font-size: 15px; 
     }
-
-    }
+  }
 @media (min-width: 320px) and (max-width: 568px) { 
   h1.text-light:after {
     text-align: center;

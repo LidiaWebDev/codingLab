@@ -1,17 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
-
-
 import { RootComponent } from './root/root.component';
 
 import { UserService } from './service/user.service';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { HomeComponent } from './home/home.component';
@@ -23,19 +21,16 @@ import { CommonModule } from '@angular/common';
 import { LandingComponent } from './landing/landing.component';
 import { BackgroundImageDirective } from './background-image.directive';
 
-
 @NgModule({
   declarations: [
-  RootComponent,
-  LoginComponent,
-  RegisterComponent,
-  AddPostComponent,
-  HomeComponent,
-  ShowPostComponent,
-  LandingComponent,
-  BackgroundImageDirective
-
- 
+    RootComponent,
+    LoginComponent,
+    RegisterComponent,
+    AddPostComponent,
+    HomeComponent,
+    ShowPostComponent,
+    LandingComponent,
+    BackgroundImageDirective,
   ],
   imports: [
     BrowserModule,
@@ -46,10 +41,10 @@ import { BackgroundImageDirective } from './background-image.directive';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
 
   providers: [UserService, AuthGuardService, CommonService],
-  bootstrap: [RootComponent]
+  bootstrap: [RootComponent],
 })
-export class AppModule { }
+export class AppModule {}
