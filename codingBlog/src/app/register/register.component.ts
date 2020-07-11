@@ -52,15 +52,6 @@ if(this.credentials.email && this.credentials.username &&this.credentials.passwo
   loaded() {
     console.log('loaded');
   }
-
-   
-
-    // this.userService.register(JSON.stringify(this.registerForm.value))
-    // .subscribe(
-    //   data=> {console.log(data); this.router.navigate(['/login']);},
-    //   error=>console.error(error)
-    // )
-    // console.log(JSON.stringify(this.registerForm.value));
   }
 
  

@@ -6,8 +6,8 @@ import { Post } from '../models/post';
 @Injectable()
 export class CommonService {
 
-    //you have declared a Subject called postAdded_Observable to keep track of the new blog post addition to the database. Whenever 
-    //a new blog post is added to the database, you'll call the notifyPostAddition method, which will notify the subscribers about the update.
+    //I have declared a Subject called postAdded_Observable to keep track of the new blog post addition to the database. Whenever 
+    //a new blog post is added to the database,  call the notifyPostAddition method, which will notify the subscribers about the update.
  
     public postAdded_Observable = new Subject();
     //to define an observable to keep track of when the edit button is clicked.
