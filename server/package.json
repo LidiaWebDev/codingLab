@@ -4,6 +4,7 @@
   "description": "RestAPI Build for User Validation with MongoDb",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [
