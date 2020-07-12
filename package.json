@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/LidiaWebDev/codingLab#readme",
   "dependencies": {
-    "app-module-path": "^2.2.0"
+    "app-module-path": "^2.2.0",
+    "mongodb": "^3.5.9"
   }
 }
