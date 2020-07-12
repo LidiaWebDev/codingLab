@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/LidiaWebDev/codingLab/issues"
   },
-  "homepage": "https://github.com/LidiaWebDev/codingLab#readme"
+  "homepage": "https://github.com/LidiaWebDev/codingLab#readme",
+  "dependencies": {
+    "app-module-path": "^2.2.0"
+  }
 }
