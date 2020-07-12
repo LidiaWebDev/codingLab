@@ -3,7 +3,7 @@ const users = express.Router()
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 
-const User = require('../model/User')
+const User = require('../model/user')
 users.use(cors())
 
 process.env.SECRET_KEY = 'secret'
