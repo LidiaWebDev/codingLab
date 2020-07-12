@@ -27,7 +27,7 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err))
 
-var Users = require('./routes/Users')
+var Users = require('./routes/users')
 
 app.use('/users', Users)
 const Post = require('./model/post')
