@@ -67,7 +67,7 @@ export class UserService {
   }
  //Register a new user - add him to the db
   public register(user: TokenPayload): Observable<any> {
-     const base = this.http.post(`http://127.0.0.1:3000/users/register`, user)
+     const base = this.http.post(`users/register`, user)
        const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
@@ -85,7 +85,7 @@ export class UserService {
     let base;
 
     if (method === 'post') {
-      base = this.http.post(`http://127.0.0.1:3000/users/login`, user);
+      base = this.http.post(`users/login`, user);
     }
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -107,7 +107,7 @@ export class UserService {
 
 
   public profile(): Observable<any> {
-    return this.http.get(`http://127.0.0.1:3000/users/home`, {
+    return this.http.get(`users/home`, {
       headers: { Authorization: ` ${this.getToken()}` }
     })
   }
