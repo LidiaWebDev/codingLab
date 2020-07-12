@@ -19,4 +19,5 @@ var userSchema = new Schema({
 // userSchema.methods.isValid = function (hashedPassword) {
 //  return bcrypt.compareSync(hashedPassword, this.password)
 // }
-module.exports = User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+module.exports = User; 
