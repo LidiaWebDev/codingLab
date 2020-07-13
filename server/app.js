@@ -17,7 +17,7 @@ app.use(
   })
 )
 
-const mongoURI = 'mongodb://localhost:27017/members'
+const mongoURI = process.env.MONGODB_URI ||'mongodb://localhost:27017/members'
 
 mongoose
   .connect(
@@ -25,7 +25,7 @@ mongoose
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err))
+  .catch(err => console.log('could not connect to mongodb', err))
 
 var Users = require('./routes/users')
 
