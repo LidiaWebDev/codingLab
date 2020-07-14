@@ -45,7 +45,7 @@ app.use('/users', Users)
 const Post = require('./model/post')
 //API end point for fetching the list of blog posts. Since for db Mongo is used, Mongoose client added to connect the db with the app.
 app.post('/api/post/getAllPost', (req, res) => {
-    mongoose.connect(url, { useMongoClient: true } , function(err){
+    mongoose.connect(url, { useMongoClient: true }, { useUnifiedTopology: true },function(err){
       console.log(err - 'error here')
         if(err) throw err;
         console.log("connection established successfully")
@@ -60,7 +60,7 @@ app.post('/api/post/getAllPost', (req, res) => {
 })
 
 app.listen(port, function() {
-  console.log('Server is running on port: ' + port, this.address().port, app.settings.env)
+  console.log('Server is running on port %d in %s mode ', this.address().port, app.settings.env)
 })
 
 
