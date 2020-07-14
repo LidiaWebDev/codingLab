@@ -1,8 +1,11 @@
 var express = require('express')
 var cors = require('cors')
 var bodyParser = require('body-parser')
+var path = require('path')
 var app = express()
+
 const mongoose = require('mongoose')
+
 
 var port = process.env.PORT || 8080
 app.use(cors({
@@ -17,6 +20,10 @@ app.use(
   })
 )
 
+// Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 const MONGODB_URI = 'mongodb://localhost:27017/members'
 
 mongoose
@@ -26,7 +33,11 @@ mongoose
     { useMongoClient: true }
   )
   .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err))
+  .catch(err => console.log('Could not connect to the DB', err))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));    
+  });
 
 var Users = require('./routes/users')
 
