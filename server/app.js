@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 var app = express()
 const mongoose = require('mongoose')
 
-var port = process.env.PORT || 8080
+var port = process.env.PORT || 3000
 app.use(cors({
 origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
 credentials:true}));
@@ -17,7 +17,7 @@ app.use(
   })
 )
 
-const mongoURI = process.env.MONGODB_URI ||'mongodb://localhost:27017/members'
+const mongoURI = 'mongodb://localhost:27017/members'
 
 mongoose
   .connect(
@@ -25,7 +25,7 @@ mongoose
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log('could not connect to mongodb', err))
+  .catch(err => console.log(err))
 
 var Users = require('./routes/users')
 
