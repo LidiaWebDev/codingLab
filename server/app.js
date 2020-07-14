@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 var app = express()
 const mongoose = require('mongoose')
 
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 8080
 app.use(cors({
 origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
 credentials:true}));
