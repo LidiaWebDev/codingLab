@@ -17,11 +17,11 @@ app.use(
   })
 )
 
-const mongoURI = 'mongodb://localhost:27017/members'
+const MONGODB_URI = 'mongodb://localhost:27017/members'
 
 mongoose
   .connect(
-    mongoURI,
+    MONGODB_URI,
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
