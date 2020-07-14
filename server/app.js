@@ -1,7 +1,9 @@
 var express = require('express')
+var path = require('path')
 var cors = require('cors')
 var bodyParser = require('body-parser')
-var path = require('path')
+var serveStatic = require('serve-static')
+
 var app = express()
 
 const mongoose = require('mongoose')
@@ -21,8 +23,7 @@ app.use(
 )
 
 // Create link to Angular build directory
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+app.use(serveStatic(path.join(__dirname, 'dist')))
 
 const MONGODB_URI = 'mongodb://localhost:27017/members'
 
@@ -35,7 +36,7 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log('Could not connect to the DB', err))
 
-  app.get('*', (req, res) => {
+  app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));    
   });
 
