@@ -60,7 +60,7 @@ app.post('/api/post/getAllPost', (req, res) => {
 })
 
 app.listen(port, function() {
-  console.log('Server is running on port: ' + port)
+  console.log('Server is running on port: ' + port, this.address().port, app.settings.env)
 })
 
 
