@@ -22,7 +22,8 @@ const MONGODB_URI = 'mongodb://localhost:27017/members'
 mongoose
   .connect(
     MONGODB_URI,
-    { useNewUrlParser: true }
+    { useNewUrlParser: true },
+    { useMongoClient: true }
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err))
