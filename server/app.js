@@ -30,10 +30,17 @@ const MONGODB_URI = 'mongodb://localhost:27017/members'
 mongoose
   .connect(
     MONGODB_URI,
-    { useNewUrlParser: true ,   
-      useCreateIndex: true, 
-      useUnifiedTopology: true 
-    })
+    {useNewUrlParser: true ,   
+    useCreateIndex: true, 
+    useUnifiedTopology: true},
+     function(err){
+      if (err) {
+        logger.error('MongoDB connection error: ' + err);
+      
+        process.exit(1);
+    }
+  })
+  
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log('Could not connect to the DB', err))
 
