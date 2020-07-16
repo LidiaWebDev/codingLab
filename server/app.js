@@ -29,7 +29,7 @@ app.use(
 )
 
 // Create link to Angular build directory
-app.use(serveStatic(path.join(__dirname, '/dist/codingBlog')))
+app.use(serveStatic(path.join(__dirname + './dist/codingBlog')))
 
 //const MONGODB_URI = 'mongodb://localhost:27017/members'
 
@@ -52,8 +52,8 @@ mongoose
   app.use(express.urlencoded({extended: false}))
   
  
-  app.get('*', (req, res) => {
-    const index = path.join(__dirname,'codingBlog','dist','index.html');
+  app.get('/', (req, res) => {
+    const index = path.join(__dirname + './dist/codingBlog/index.html');
     res.sendFile(index);    
   });
 
