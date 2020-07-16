@@ -4,6 +4,7 @@ var cors = require('cors')
 var morgan = require('morgan')
 var bodyParser = require('body-parser')
 var serveStatic = require('serve-static')
+const logger = require("logger");
 
 
 
@@ -27,7 +28,7 @@ app.use(
 )
 
 // Create link to Angular build directory
-app.use(serveStatic(path.join(__dirname, 'codingBlog/dist')))
+app.use(serveStatic(path.join(__dirname, '/dist')))
 
 //const MONGODB_URI = 'mongodb://localhost:27017/members'
 
@@ -48,9 +49,11 @@ mongoose
   //Data parsing
   app.use(express.json())
   app.use(express.urlencoded({extended: false}))
+  app.use(express.static('dist'));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../codingBlog/dist'));    
+    const index = path.join(__dirname, 'dist', 'index.html');
+    res.sendFile(index);    
   });
 
 

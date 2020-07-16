@@ -22,6 +22,7 @@
   "homepage": "https://github.com/LidiaWebDev/codingLab#readme",
   "dependencies": {
     "app-module-path": "^2.2.0",
+    "logger": "0.0.1",
     "mongodb": "^3.5.9",
     "morgan": "^1.10.0",
     "path": "^0.12.7"
