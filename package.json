@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo\"Error: no test specified\" && exit 1",
     "build": "cd codingBlog && npm run build",
-    "install-codingBlog":"cd codingBlog && npm install",
-    "heroku-postbuild":"npm run install-codingBlog && npm run build",
+    "install-codingBlog": "cd codingBlog && npm install",
+    "heroku-postbuild": "npm run install-codingBlog && npm run build",
     "start": "node app.js"
   },
   "repository": {
