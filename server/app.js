@@ -37,7 +37,7 @@ app.use(serveStatic(path.join(__dirname, '/dist/codingBlog')))
 //step2
 mongoose
   .connect(
-    process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/members',
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
     {useNewUrlParser: true ,   
     useCreateIndex: true, 
     useUnifiedTopology: true,
