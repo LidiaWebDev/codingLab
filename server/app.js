@@ -21,6 +21,7 @@ credentials:true}));
 
 
 app.use(bodyParser.json())
+app.use(logger())
 app.use(
   bodyParser.urlencoded({
     extended: false
@@ -49,8 +50,8 @@ mongoose
   //Data parsing
   app.use(express.json())
   app.use(express.urlencoded({extended: false}))
-  app.use(express.static('dist'));
-
+  
+ 
   app.get('*', (req, res) => {
     const index = path.join(__dirname, 'dist', 'index.html');
     res.sendFile(index);    
