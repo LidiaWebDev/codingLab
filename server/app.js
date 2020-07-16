@@ -29,11 +29,9 @@ app.use(
 )
 
 // Create link to Angular build directory
-app.use(serveStatic(path.join(__dirname + "./codingBlog/dist/codingBlog")))
+//app.use(serveStatic(path.join(__dirname + "./codingBlog/dist/codingBlog")))
 
 //const MONGODB_URI = 'mongodb://localhost:27017/members'
-
-
 //step2
 mongoose
   .connect(
@@ -52,10 +50,7 @@ mongoose
   app.use(express.urlencoded({extended: false}))
   
  
-  app.get('/', (req, res) => {
-    const index = path.join(__dirname + "./codingBlog/dist/codingBlog/index.html");
-    res.sendFile(index);    
-  });
+
 
 
 //HTTP request logger
@@ -80,7 +75,11 @@ app.post('/api/post/getAllPost', (req, res) => {
 })
 //step3
 if(process.env.NODE_ENV ==='production') {
-
+  app.use(express.static("/dist"));
+  app.get('*', (req, res) => {
+    const index = path.join(__dirname, "../codingBlog", "dist" ,"index.html");
+    res.sendFile(index);    
+  });
 }
 
 app.listen(port, function() {
