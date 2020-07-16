@@ -4,7 +4,7 @@ var cors = require('cors')
 var morgan = require('morgan')
 var bodyParser = require('body-parser')
 var serveStatic = require('serve-static')
-const logger = require("logger");
+const logger = require("morgan");
 
 
 
@@ -21,7 +21,7 @@ credentials:true}));
 
 
 app.use(bodyParser.json())
-app.use(logger('combined'))
+app.use(logger())
 app.use(
   bodyParser.urlencoded({
     extended: false
