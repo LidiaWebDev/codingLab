@@ -4,6 +4,10 @@
   "description": "server side ",
   "main": "app.js",
   "scripts": {
+    "test": "echo\"Error: no test specified\" && exit 1",
+    "build": "cd codingBlog && npm run build",
+    "install-codingBlog":"cd codingBlog && npm install",
+    "heroku-postbuild":"npm run install-codingBlog && npm run build",
     "start": "node app.js"
   },
   "repository": {
@@ -19,6 +23,7 @@
   "dependencies": {
     "app-module-path": "^2.2.0",
     "mongodb": "^3.5.9",
+    "morgan": "^1.10.0",
     "path": "^0.12.7"
   }
 }

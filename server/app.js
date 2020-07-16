@@ -1,15 +1,19 @@
 var express = require('express')
 var path = require('path')
 var cors = require('cors')
+var morgan = require('morgan')
 var bodyParser = require('body-parser')
 var serveStatic = require('serve-static')
+
+
 
 var app = express()
 
 const mongoose = require('mongoose')
 
-
+//step1
 var port = process.env.PORT || 8080
+var Users = require('./routes/users')
 app.use(cors({
 origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
 credentials:true}));
@@ -23,34 +27,37 @@ app.use(
 )
 
 // Create link to Angular build directory
-app.use(serveStatic(path.join(__dirname, 'dist')))
+app.use(serveStatic(path.join(__dirname, 'codingBlog/dist')))
 
-const MONGODB_URI = 'mongodb://localhost:27017/members'
+//const MONGODB_URI = 'mongodb://localhost:27017/members'
 
+
+//step2
 mongoose
   .connect(
-    MONGODB_URI,
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/members'
     {useNewUrlParser: true ,   
     useCreateIndex: true, 
-    useUnifiedTopology: true},
-     function(err){
-      if (err) {
-        logger.error('MongoDB connection error: ' + err);
-      
-        process.exit(1);
-    }
+    useUnifiedTopology: true,
+    useFindAndModify: false
+
   })
-  
-  .then(() => console.log('MongoDB Connected'))
+  .then(() => console.log('MongoDB Connected Externally'))
   .catch(err => console.log('Could not connect to the DB', err))
 
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'));    
+  //Data parsing
+  app.use(express.json())
+  app.use(express.urlencoded({extended: false}))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../codingBlog/dist'));    
   });
 
-var Users = require('./routes/users')
 
+//HTTP request logger
+app.use(morgan('tiny'))
 app.use('/users', Users)
+
 const Post = require('./model/post')
 //API end point for fetching the list of blog posts. Since for db Mongo is used, Mongoose client added to connect the db with the app.
 app.post('/api/post/getAllPost', (req, res) => {
@@ -67,9 +74,13 @@ app.post('/api/post/getAllPost', (req, res) => {
         })
     });
 })
+//step3
+if(process.env.NODE_ENV ==='production') {
+
+}
 
 app.listen(port, function() {
-  console.log('Server is running on port %d in %s mode ', this.address().port, app.settings.env)
+  console.log('Server is running on port %d in %s mode ')
 })
 
 
