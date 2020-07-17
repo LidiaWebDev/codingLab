@@ -13,7 +13,7 @@ var app = express()
 const mongoose = require('mongoose')
 
 //step1
-var port = process.env.PORT || 8080
+var PORT = process.env.PORT || 8080
 var Users = require('./routes/users')
 app.use(cors({
 origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
@@ -35,7 +35,9 @@ app.use(
 //step2
 mongoose
   .connect(
-    process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
+    process.env.MONGODB_URI || 'mongodb://localhost/members',
+    //process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
+    // 'mongodb://port-folio1949:12!folio@ds011903.mlab.com:11903/heroku_rqlbmf6r',
     {useNewUrlParser: true ,   
     useCreateIndex: true, 
     useUnifiedTopology: true,
@@ -75,16 +77,16 @@ app.post('/api/post/getAllPost', (req, res) => {
 })
 //step3
 if(process.env.NODE_ENV ==='production') {
-  app.use(express.static("/dist"));
+  console.log("this application is on Heroku")
+  app.use(express.static("codingBlog/dist"));
   app.get('*', (req, res) => {
     const index = path.join(__dirname, "../codingBlog", "dist" ,"index.html");
     res.sendFile(index);    
   });
 }
 
-app.listen(port, function() {
-  console.log('Server is running successfully! ')
-})
+app.listen(PORT, 
+  console.log(`Server is running successfully at ${PORT}!`))
 
 
 
