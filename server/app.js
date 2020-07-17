@@ -7,7 +7,6 @@ var serveStatic = require('serve-static')
 const logger = require("morgan");
 
 
-
 var app = express()
 
 const mongoose = require('mongoose')
@@ -35,8 +34,8 @@ app.use(
 //step2
 mongoose
   .connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/members',
-    //process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
+
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
     // 'mongodb://port-folio1949:12!folio@ds011903.mlab.com:11903/heroku_rqlbmf6r',
     {useNewUrlParser: true ,   
     useCreateIndex: true, 
@@ -80,7 +79,8 @@ if(process.env.NODE_ENV ==='production') {
   console.log("this application is on Heroku")
   app.use(express.static("codingBlog/dist"));
   app.get('*', (req, res) => {
-    const index = path.join(__dirname, "../codingBlog", "dist" ,"index.html");
+    const index = path.join(__dirname, "../codingBlog/dist/codingBlog/index.html");
+    
     res.sendFile(index);    
   });
 }
