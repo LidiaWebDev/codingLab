@@ -8,8 +8,9 @@
     "build": "cd codingBlog && npm run build",
     "install-codingBlog": "cd codingBlog && npm install",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-codingBlog && npm run build",
-    "start": "node app.js",
-    "codingBlog" :"cd codingBlog && npm start"
+    "start": "nodemon app.js",
+    "codingBlog": "cd codingBlog && npm start --prefix codingBlog",
+    "dev": "concurrently --kill-others-on-fail \"npm run start\" \"npm run codingBlog\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/LidiaWebDev/codingLab#readme",
   "dependencies": {
     "app-module-path": "^2.2.0",
+    "devicon": "^2.2.0",
     "logger": "0.0.1",
     "mongodb": "^3.5.9",
     "morgan": "^1.10.0",
