@@ -77,7 +77,7 @@ app.post('/api/post/getAllPost', (req, res) => {
 //step3
 if(process.env.NODE_ENV ==='production') {
   console.log("this application is on Heroku")
-  app.use(express.static(__dirname, "/codingBlog/dist"));
+  app.use(express.static("../codingBlog/dist"));
   app.get('*', (req, res) => {
     const index = path.join(__dirname, "../codingBlog/dist/codingBlog/index.html");
     
