@@ -28,7 +28,8 @@
     "logger": "0.0.1",
     "mongodb": "^3.5.9",
     "morgan": "^1.10.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "popper.js": "^1.16.1"
   },
   "devDependencies": {
     "node-sass": "^4.14.1"
