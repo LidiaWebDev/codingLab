@@ -81,7 +81,7 @@ if(process.env.NODE_ENV ==='production') {
   app.get('*', (req, res) => {
     const index = path.join(__dirname, "../codingBlog/dist/codingBlog/", "index.html");
     res.sendFile(index);    
-    res.redirect('/landing');
+   
   });
 }
 
