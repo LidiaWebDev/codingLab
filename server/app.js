@@ -76,26 +76,17 @@ app.post('/api/post/getAllPost', (req, res) => {
 })
 //step3
 if(process.env.NODE_ENV ==='production') {
-  console.log("this application is on Heroku")
-  app.use(express.static("../codingBlog/dist"));
-  const allowed = [
-    '.js',
-    '.css',
-    '.png',
-    '.jpg'
-  ];
+  app.use(express.static(path.join(__dirname, "dist")))
+  // app.use(express.static("../codingBlog/dist"));
   app.get('*', (req, res) => {
-    if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-      res.sendFile(path.resolve(`../codingBlog/dist/codingBlog/${req.url}`));
-    } else {
-    const app = path.join(__dirname, "../codingBlog/dist/codingBlog/");
-    const index = path.join(__dirname, "../codingBlog/dist/codingBlog/", "index.html");
+    // const app = path.join(__dirname, "../codingBlog/dist/codingBlog/");
+    // const index = path.join(__dirname, "../codingBlog/dist/codingBlog/", "index.html");
+    const app = path.join(__dirname, "/dist/codingBlog/index.html");
     res.sendFile(app);   
     res.sendFile(index);   
-    } 
-  
-  });
+  })
 }
+
 
 app.listen(PORT, 
   console.log(`Server is running successfully at ${PORT}!`))
