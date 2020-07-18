@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/LidiaWebDev/codingLab/issues"
   },
-  "homepage": "https://glacial-scrubland-33602.herokuapp.com/",
+  
   "dependencies": {
     "app-module-path": "^2.2.0",
     "devicon": "^2.2.0",
