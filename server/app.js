@@ -33,9 +33,9 @@ app.use(
 //const MONGODB_URI = 'mongodb://localhost:27017/members'
 //step2
 mongoose
-  .connect(
+  .connect('mongodb://localhost:27017/members',
 
-    process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
+    // process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
     // 'mongodb://port-folio1949:12!folio@ds011903.mlab.com:11903/heroku_rqlbmf6r',
     {useNewUrlParser: true ,   
     useCreateIndex: true, 
