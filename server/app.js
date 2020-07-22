@@ -19,7 +19,7 @@ credentials:true}));
 
 
 app.use(bodyParser.json())
-app.use(logger())
+app.use(logger('combined'))
 app.use(
   bodyParser.urlencoded({
     extended: false
@@ -31,10 +31,12 @@ app.use(
 
 //const MONGODB_URI = 'mongodb://localhost:27017/members'
 //step2
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/"
 mongoose
-.connect('mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds011903.mlab.com:11903/${process.env.DB_NAME}',
-  
+.connect (MONGODB_URI,
 
+
+//.connect('mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds011903.mlab.com:11903/${process.env.DB_NAME}',
 //.connect('mongodb://localhost:27017/members',
 //.connect ('mongodb://admin:koshatina8@127.0.0.1:27017/?authSource=heroku_rqlbmf6r',
 
