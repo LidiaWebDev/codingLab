@@ -6,10 +6,9 @@ var bodyParser = require('body-parser')
 var serveStatic = require('serve-static')
 const logger = require("morgan");
 
-
-var app = express()
-
 const mongoose = require('mongoose')
+require('dotenv').config();
+var app = express()
 
 //step1
 var PORT = process.env.PORT || 8080
@@ -33,14 +32,15 @@ app.use(
 //const MONGODB_URI = 'mongodb://localhost:27017/members'
 //step2
 mongoose
-.connect('mongodb://port-folio1949:12!folio@ds011903.mlab.com:11903/heroku_rqlbmf6r',
+.connect('mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds011903.mlab.com:11903/${process.env.DB_NAME}',
   
 
 //.connect('mongodb://localhost:27017/members',
 
     // process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
-    // 'mongodb://port-folio1949:12!folio@ds011903.mlab.com:11903/heroku_rqlbmf6r',
-    {useNewUrlParser: true ,   
+    //'mongodb://port-folio1949:12!folio@ds011903.mlab.com:11903/heroku_rqlbmf6r',
+    {useMongoClient: true,
+    useNewUrlParser: true ,   
     useCreateIndex: true, 
     useUnifiedTopology: true,
     useFindAndModify: false
