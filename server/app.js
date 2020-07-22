@@ -36,11 +36,11 @@ mongoose
   
 
 //.connect('mongodb://localhost:27017/members',
+//.connect ('mongodb://admin:koshatina8@127.0.0.1:27017/?authSource=heroku_rqlbmf6r',
 
     // process.env.MONGODB_URI || 'mongodb://localhost:27017/members',
     //'mongodb://port-folio1949:12!folio@ds011903.mlab.com:11903/heroku_rqlbmf6r',
-    {useMongoClient: true,
-    useNewUrlParser: true ,   
+    { useNewUrlParser: true ,   
     useCreateIndex: true, 
     useUnifiedTopology: true,
     useFindAndModify: false
