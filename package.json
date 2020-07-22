@@ -8,7 +8,7 @@
     "build": "cd codingBlog && npm run build",
     "install-codingBlog": "cd codingBlog && npm install",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-codingBlog && npm run build",
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "codingBlog": "cd codingBlog && npm start --prefix codingBlog",
     "dev": "concurrently --kill-others-on-fail \"npm run start\" \"npm run codingBlog\""
   },
