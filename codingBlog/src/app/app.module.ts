@@ -20,10 +20,12 @@ import { CommonService } from './service/common.service';
 import { CommonModule } from '@angular/common';
 import { LandingComponent } from './landing/landing.component';
 import { BackgroundImageDirective } from './background-image.directive';
+import { AppComponent } from './app/app.component';
 
 @NgModule({
   declarations: [
     RootComponent,
+    AppComponent,
     LoginComponent,
     RegisterComponent,
     AddPostComponent,
@@ -45,6 +47,6 @@ import { BackgroundImageDirective } from './background-image.directive';
   ],
 
   providers: [UserService, AuthGuardService, CommonService],
-  bootstrap: [RootComponent],
+  bootstrap: [RootComponent, AppComponent],
 })
 export class AppModule {}
