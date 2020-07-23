@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { RootComponent } from './root/root.component';
+import { AppComponent } from './app/app.component';
 
 import { UserService } from './service/user.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,9 +23,11 @@ import { LandingComponent } from './landing/landing.component';
 import { BackgroundImageDirective } from './background-image.directive';
 
 
+
 @NgModule({
   declarations: [
     RootComponent,
+    AppComponent,
     LoginComponent,
     RegisterComponent,
     AddPostComponent,
