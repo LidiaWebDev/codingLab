@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -20,7 +20,7 @@ import { CommonService } from './service/common.service';
 import { CommonModule } from '@angular/common';
 import { LandingComponent } from './landing/landing.component';
 import { BackgroundImageDirective } from './background-image.directive';
-import { AppComponent } from './app/app.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +43,9 @@ import { AppComponent } from './app/app.component';
     HttpClientModule,
     CommonModule,
     ModalModule.forRoot(),
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
 
   providers: [UserService, AuthGuardService, CommonService],
