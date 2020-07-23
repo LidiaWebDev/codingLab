@@ -25,7 +25,6 @@ import { AppComponent } from './app/app.component';
 @NgModule({
   declarations: [
     RootComponent,
-    AppComponent,
     LoginComponent,
     RegisterComponent,
     AddPostComponent,
@@ -47,6 +46,6 @@ import { AppComponent } from './app/app.component';
   ],
 
   providers: [UserService, AuthGuardService, CommonService],
-  bootstrap: [RootComponent, AppComponent],
+  bootstrap: [RootComponent],
 })
 export class AppModule {}

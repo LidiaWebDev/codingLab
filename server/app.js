@@ -83,12 +83,15 @@ app.post('/api/post/getAllPost', (req, res) => {
 if(process.env.NODE_ENV ==='production') {
  
   app.use(express.static("../codingBlog/dist"));
-  app.get('*', (req, res) => {
+  app.get('/', (req, res) => {
     const app = path.join(__dirname, "../codingBlog/dist/codingBlog/");
     const index = path.join(__dirname, "../codingBlog/dist/codingBlog/", "index.html");
     res.sendFile(app);   
     res.sendFile(index);   
   })
+  app.get('/', function (req, res) {
+    res.redirect("/index.html")
+       })
 }
 
 
