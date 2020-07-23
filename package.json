@@ -1,7 +1,7 @@
 {
   "name": "codinglab",
   "version": "1.0.0",
-  "description": "server side ",
+  "description": "server side",
   "main": "app.js",
   "scripts": {
     "test": "echo\"Error: no test specified\" && exit 1",
