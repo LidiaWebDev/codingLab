@@ -31,7 +31,7 @@ app.use(
 
 //const MONGODB_URI = 'mongodb://localhost:27017/members'
 //step2
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/"
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/members"
 mongoose
 .connect (MONGODB_URI,
 
