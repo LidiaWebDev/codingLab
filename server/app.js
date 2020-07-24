@@ -4,7 +4,7 @@ var cors = require('cors')
 var morgan = require('morgan')
 var bodyParser = require('body-parser')
 var serveStatic = require('serve-static')
-const logger = require("morgan");
+const logger = require("morgan")
 
 const mongoose = require('mongoose')
 require('dotenv').config();
@@ -84,8 +84,8 @@ if(process.env.NODE_ENV ==='production') {
  
   app.use(express.static("../codingBlog/dist/codingBlog"));
   app.get('*', (req, res) => {
-    const app = path.join(__dirname + "../codingBlog/dist/codingBlog/");
-    const index = path.join(__dirname + "../codingBlog/dist/codingBlog/", "index.html");
+    const app = path.join(__dirname, "../codingBlog/dist/codingBlog/");
+    const index = path.join(__dirname, "../codingBlog/dist/codingBlog/", "index.html");
     res.sendFile(app);   
     res.sendFile(index);   
   })
@@ -93,6 +93,8 @@ if(process.env.NODE_ENV ==='production') {
     res.redirect("/index.html")
        })
 }
+
+
 
 app.use((req, res, next) => {
   res.status(404).send({
