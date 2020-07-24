@@ -101,9 +101,6 @@ if(process.env.NODE_ENV ==='production') {
     res.sendFile(index);  
     } 
   })
-  app.get('*', function (req, res) {
-    res.redirect("/index.html")
-       })
 }
 
 
