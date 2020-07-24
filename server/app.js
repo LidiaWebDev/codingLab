@@ -84,8 +84,8 @@ if(process.env.NODE_ENV ==='production') {
  
   app.use(express.static("dist/codingBlog"));
   app.get('*', (req, res) => {
-    const app = path.join(__dirname, "dist/codingBlog/");
-    const index = path.join(__dirname, "dist/codingBlog/", "index.html");
+    const app = path.join(__dirname, "/dist/codingBlog/");
+    const index = path.join(__dirname, "/dist/codingBlog/", "index.html");
     res.sendFile(app);   
     res.sendFile(index);   
   })
