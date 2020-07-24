@@ -95,8 +95,8 @@ if(process.env.NODE_ENV ==='production') {
       res.sendFile(path.resolve(`../codingBlog/dist/${req.url}`));
     }
     else {
-    const app = path.join(__dirname, "../codingBlog/dist");
-    const index = path.join(__dirname, "../codingBlog/dist", "index.html");
+    const app = path.join(__dirname, "../codingBlog/dist/");
+    const index = path.join(__dirname, "../codingBlog/dist/", "index.html");
     res.sendFile(app);   
     res.sendFile(index);  
     } 
