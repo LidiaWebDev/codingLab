@@ -92,12 +92,10 @@ if(process.env.NODE_ENV ==='production') {
   
   app.get('*', (req, res) => {
     if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-      res.sendFile(path.resolve(`codingLab/codingBlog/dist/${req.url}`));
+      res.sendFile(path.resolve(`../codingBlog/dist/codingBlog/${req.url}`));
     }
     else {
-    const app = path.join(__dirname, "codingLab/codingBlog/dist/");
-    const index = path.join(__dirname, "codingLab/codingBlog/dist/", "index.html");
-    res.sendFile(app);   
+    const index = path.join("../codingBlog/dist/codingBlog/", "index.html");
     res.sendFile(index);  
     } 
   })
