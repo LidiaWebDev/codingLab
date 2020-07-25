@@ -86,6 +86,7 @@ app.post('/api/post/getAllPost', (req, res) => {
 if(process.env.NODE_ENV ==='production') {
  
   app.use(express.static(path.join(__dirname, "../codingBlog/dist")));
+  app.use(express.static(path.join(__dirname, "../codingBlog/dist/assets")));
   // const allowed = [
   //   '.js',
   //   '.css',
