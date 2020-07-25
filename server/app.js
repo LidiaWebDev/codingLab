@@ -95,10 +95,12 @@ if(process.env.NODE_ENV ==='production') {
   app.get('*', (req, res) => {
     if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
       res.sendFile(path.resolve(__dirname, `../codingBlog/dist/${req.url}`));
+      res.redirect("/codingBlog/") 
     }
     else {
     const index = path.join(__dirname, "../codingBlog/dist/", "index.html");
-    res.sendFile(index);  
+    res.sendFile(index);
+    res.redirect("/codingBlog/")  
     } 
   })
 }
