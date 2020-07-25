@@ -81,27 +81,27 @@ app.post('/api/post/getAllPost', (req, res) => {
 })
 //step3
 
-app.use(express.static(path.join(__dirname, "../codingBlog/dist")))
-// if(process.env.NODE_ENV ==='production') {
+//app.use(express.static(path.join(__dirname, "../codingBlog/dist")))
+if(process.env.NODE_ENV ==='production') {
  
-//   app.use('/dist', express.static("dist"));
-//   const allowed = [
-//     '.js',
-//     '.css',
-//     '.png',
-//     '.jpg'
-//   ];
+  app.use(express.static(path.join(__dirname, "../codingBlog/dist")));
+  const allowed = [
+    '.js',
+    '.css',
+    '.png',
+    '.jpg'
+  ];
   
-//   app.get('*', (req, res) => {
-//     if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-//       res.sendFile(path.resolve(__dirname, `../codingBlog/dist/${req.url}`));
-//     }
-//     else {
-//     const index = path.join(__dirname, "../codingBlog/dist/", "index.html");
-//     res.sendFile(index);  
-//     } 
-//   })
-// }
+  app.get('*', (req, res) => {
+    if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
+      res.sendFile(path.resolve(__dirname, `../codingBlog/dist/${req.url}`));
+    }
+    else {
+    const index = path.join(__dirname, "../codingBlog/dist/", "index.html");
+    res.sendFile(index);  
+    } 
+  })
+}
 
 
 
