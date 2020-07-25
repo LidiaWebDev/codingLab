@@ -13,7 +13,7 @@ var app = express()
 //step1
 var PORT = process.env.PORT || 8080
 var Users = require('./routes/users')
-var images = require('../codingBlog/src/assets');
+
 app.use('/images', images);
 app.use(cors({
 origin:['http://localhost:4200', 'http://127.0.0.1:4200'],
@@ -87,23 +87,23 @@ app.post('/api/post/getAllPost', (req, res) => {
 if(process.env.NODE_ENV ==='production') {
  
   app.use(express.static(path.join(__dirname, "../codingBlog/dist")));
-  const allowed = [
-    '.js',
-    '.css',
-    '.png',
-    '.jpg'
-  ];
+  // const allowed = [
+  //   '.js',
+  //   '.css',
+  //   '.png',
+  //   '.jpg'
+  // ];
   
   app.get('*', (req, res) => {
-    if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-      res.sendFile(path.resolve(__dirname, `../codingBlog/dist/${req.url}`));
-      res.redirect("/codingBlog/") 
-    }
-    else {
+    // if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
+    //   res.sendFile(path.resolve(__dirname, `../codingBlog/dist/${req.url}`));
+    //   res.redirect("/codingBlog/") 
+    // }
+    // else {
     const index = path.join(__dirname, "../codingBlog/dist/", "index.html");
     res.sendFile(index);
     res.redirect("/codingBlog/")  
-    } 
+    
   })
 }
 
