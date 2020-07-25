@@ -81,7 +81,7 @@ app.post('/api/post/getAllPost', (req, res) => {
 })
 //step3
 
-app.use(express.static(path.join(__dirname, "../dist")))
+app.use(express.static(path.join(__dirname, "../codingBlog/dist")))
 // if(process.env.NODE_ENV ==='production') {
  
 //   app.use('/dist', express.static("dist"));
